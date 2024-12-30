@@ -8,14 +8,10 @@ This project evaluates the ecological impact of Nusantara's construction, Indone
 ## Background
 The construction of Nusantara, initiated in 2022, aims to address Jakarta's overpopulation and land subsidence. However, concerns about the destruction of mangroves, rare species habitats, and other critical ecosystems have been raised. This project seeks to understand the ecological changes in key biodiversity regions through advanced geospatial analysis.
 
----
-
 ## Objectives
 - Analyze vegetation health changes using NDVI (Normalized Difference Vegetation Index).
 - Assess ecological welfare pre- and post-construction of Nusantara.
 - Provide insights for policymakers on protecting biodiversity hotspots.
-
----
 
 ## Data Sources
 1. **Hansen Global Forest Change v1.10**: Used for preliminary analysis of forest landscapes (2000–2022).
@@ -24,76 +20,86 @@ The construction of Nusantara, initiated in 2022, aims to address Jakarta's over
 4. **Verisk Maplecroft Maps**: Highlighting key biodiversity regions outside protected zones.
 
 ---
-
 ## Methodology
-1. **Georeferencing**:
-   - Non-spatial maps from official sources are georeferenced using QGIS.
-   - Control points are used to warp maps for spatial analysis.
-   - Resulting polygons are exported to Google Earth Engine.
 
-2. **Remote Sensing**:
-   - NDVI is calculated using Landsat 8 bands:
-     - Near-Infrared (NIR): Band 5
-     - Red Band: Band 4
-   - NDVI formula:
-     ```
-     NDVI = (NIR - Red) / (NIR + Red)
-     ```
-   - A threshold of 0.1 indicates significant vegetation changes.
+This study uses geospatial analysis to evaluate the ecological impact of Nusantara's construction. Two maps were georeferenced to define administrative and ecological study regions.
 
-3. **Temporal Analysis**:
-   - Pre-construction period: September 2019 – March 2022
-   - Post-construction period: March 2022 – March 2024
-   - Cloud-reduction techniques are applied for accuracy.
+### Maps Used for Georeferencing
 
----
+1. **Official IKN Map (IKN_admin.png)**  
+   Provided by the Indonesian government, this map outlines the administrative regions of Nusantara. It was georeferenced in QGIS to delineate the city and construction zones.
 
-## Results
-- **NDVI Analysis**:
-  - Direct IKN region: Significant vegetation loss observed.
-  - Key biodiversity regions: Some areas experienced vegetation growth despite proximity to construction zones.
-- **Insights**:
-  - Proximity to construction does not consistently predict ecological damage.
-  - Increased vegetation health in some regions suggests effective local conservation measures.
+   ![IKN_admin](assets/IKN_admin.png)
 
----
+2. **Verisk Maplecroft Map (IKN_regions.png)**  
+   This map highlights key biodiversity regions surrounding Nusantara. Georeferencing enabled the creation of polygons representing critical ecological zones.
 
-## Visualizations
-### Figure 1: NDVI Pre- and Post-Construction
-- Highlights changes in vegetation health across regions.
+   ![IKN_regions](assets/IKN_regions.png)
 
-### Figure 2: Vegetation Health in Key Biodiversity Areas
-- Displays significant NDVI loss and gain.
+### Georeferencing Process
+
+- Both maps were processed in QGIS using the GDAL extension for accurate spatial alignment.
+- Control points were assigned by matching key geographic coordinates.
+- Resulting polygons were exported to Google Earth Engine (API) for overlaying with NDVI data to assess vegetation health changes.
+
+These georeferenced maps were foundational for analyzing the pre- and post-construction impact of Nusantara on surrounding ecosystems.
+
+### NDVI Formula
+The Normalized Difference Vegetation Index (NDVI) is calculated using the formula:
+
+\[
+NDVI = \frac{(NIR - Red)}{(NIR + Red)}
+\]
+
+Where:
+- \( NIR \): Near-infrared band (Band 5)
+- \( Red \): Red band of the visible light spectrum (Band 4)
 
 ---
 
-## Conclusion
-The results highlight the importance of nuanced analyses for understanding ecological impacts. Proximity alone cannot predict vegetation health changes, suggesting a need for more comprehensive environmental policies.
+## NDVI Significant Gain and Loss Across Key Biodiversity Regions
+
+![NDVI Gain and Loss Map](assets/NDVI_loss_gain.png)
+
+The map above illustrates significant changes in vegetation health (NDVI) across key biodiversity regions surrounding the construction of Nusantara. Areas marked in **green** represent significant gains in vegetation health, while **red** areas indicate notable losses. The outlined regions denote protected key biodiversity areas, and the hatched red region represents the administrative boundaries of Nusantara's construction site.
+
+### Insights:
+Despite initial assumptions, the proximity to the construction site does not consistently predict vegetation loss. Notably, several biodiversity regions near the direct construction zone exhibited **significant gains** in vegetation health, potentially indicating effective local conservation efforts or natural regeneration processes. However, specific zones within the construction area experienced vegetation loss, attributed to deforestation and road construction activities. These findings challenge the simplistic assumption that proximity directly correlates with ecological degradation.
 
 ---
 
-## Future Directions
-- Explore additional environmental variables.
-- Conduct long-term monitoring beyond 2024.
-- Collaborate with policymakers to refine protection strategies for biodiversity hotspots.
+## NDVI Analysis Within the IKN Administrative Region
+
+<table>
+  <tr>
+    <td><img src="assets/pre.png" alt="Pre-construction NDVI" width="300"/></td>
+    <td><img src="assets/post.png" alt="Post-construction NDVI" width="300"/></td>
+    <td><img src="assets/changes.png" alt="NDVI Changes" width="300"/></td>
+  </tr>
+  <tr>
+    <td align="center">Pre-construction NDVI</td>
+    <td align="center">Post-construction NDVI</td>
+    <td align="center">NDVI Changes</td>
+  </tr>
+</table>
+
+### Insights:
+The three maps illustrate the vegetation health in the IKN administrative region across different periods:
+- **Left (Pre-construction)**: NDVI values before the construction of Nusantara show widespread vegetation health, particularly in forested areas.
+- **Center (Post-construction)**: The post-construction NDVI values reveal notable changes, with some areas showing reduced vegetation health, likely due to land clearing and road development.
+- **Right (Changes)**: The difference map highlights areas of significant NDVI gain (green) and loss (red). While construction zones exhibit loss, some regions demonstrate unexpected vegetation health gains, suggesting localized regeneration or effective conservation practices.
+
+These findings indicate that the ecological impact within the IKN administrative region is complex and not solely defined by proximity to construction sites. Further localized analyses are necessary to explain the patterns of vegetation gain and loss.
 
 ---
+## Conclusion and Future Work
 
-## Acknowledgments
-- **Author**: Putra Farrel Azhar
-- **Data Sources**: USGS, Verisk Maplecroft, and Indonesian Government.
 
----
+#### Conclusion
+This study leverages NDVI analysis to assess vegetation health changes in Nusantara’s construction areas and surrounding biodiversity regions. While significant vegetation loss is observed near construction zones, some areas show vegetation gains, challenging assumptions about proximity-driven ecological degradation. These findings provide a baseline for informed policy-making in urban development and environmental conservation.
 
-## How to Use
-1. **Data Analysis**:
-   - Access the raw and processed data files in the `/data` folder.
-2. **Visualizations**:
-   - Figures are available in the `/assets` folder.
-3. **Paper**:
-   - The final report is stored in the `/paper` folder.
 
----
-
-## License
-This project is open for academic and non-commercial use under the [MIT License](LICENSE).
+#### Future Work
+- **Integrate Additional Variables**: Include other environmental indicators like water quality or carbon emissions to complement vegetation analysis.  
+- **Extend Temporal Scope**: Continue monitoring NDVI trends to assess long-term ecological impacts of the ongoing construction.  
+- **Refine Proximity Analysis**: Investigate additional factors influencing vegetation health to better understand non-linear ecological impacts.
