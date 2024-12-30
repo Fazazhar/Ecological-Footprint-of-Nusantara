@@ -26,12 +26,12 @@ This study uses geospatial analysis to evaluate the ecological impact of Nusanta
 
 ### Maps Used for Georeferencing
 
-1. **Official IKN Map (IKN_admin.png)**  
+1. **Official IKN Map**  
    Provided by the Indonesian government, this map outlines the administrative regions of Nusantara. It was georeferenced in QGIS to delineate the city and construction zones.
 
    ![IKN_admin](assets/IKN_admin.png)
 
-2. **Verisk Maplecroft Map (IKN_regions.png)**  
+2. **Verisk Maplecroft Map**  
    This map highlights key biodiversity regions surrounding Nusantara. Georeferencing enabled the creation of polygons representing critical ecological zones.
 
    ![IKN_regions](assets/IKN_regions.png)
