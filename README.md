@@ -47,13 +47,12 @@ These georeferenced maps were foundational for analyzing the pre- and post-const
 ### NDVI Formula
 The Normalized Difference Vegetation Index (NDVI) is calculated using the formula:
 
-\[
-NDVI = \frac{(NIR - Red)}{(NIR + Red)}
-\]
+$$ NDVI = {(NIR - Red) \over (NIR + Red)} $$
 
 Where:
-- \( NIR \): Near-infrared band (Band 5)
-- \( Red \): Red band of the visible light spectrum (Band 4)
+
+- **NIR**: Near-infrared band (Band 5)  
+- **Red**: Red band of the visible light spectrum (Band 4)
 
 ---
 
